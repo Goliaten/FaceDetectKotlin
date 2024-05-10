@@ -1,13 +1,17 @@
 package com.example.facedetectkotlin
 
+import android.content.ClipData.Item
 import com.example.facedetectkotlin.databinding.ActivityMainBinding
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 
@@ -21,19 +25,42 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(activityMainBinding.root)
+        setupMenuButtons()
+    }
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
-        activityMainBinding.navigation.setupWithNavController(navController)
-        activityMainBinding.navigation.setOnNavigationItemReselectedListener {
-            // ignore the reselection
-        }
+    private fun setupMenuButtons() {
 
     }
 
     fun buttonClick(view: View) {
         Toast.makeText(this, "Boobs", Toast.LENGTH_LONG).show();
     }
+
+    fun buttonClick(item: MenuItem) {
+        Toast.makeText(this, "Booba", Toast.LENGTH_LONG).show();
+    }
+
+    fun goToCamera(item: MenuItem) {
+        Navigation.findNavController(
+            this@MainActivity,
+            R.id.fragmentContainerView
+        ).navigate(
+            R.id.action_blankFragment_to_cameraFragment2
+        )
+    }
+
+    fun goToSettings(item: MenuItem) {
+
+        // TODO: This right now works only for going from camera fragment to blank fragment
+        //       find a way to do this universally, or enjoy the pain of doing it for every fragment
+        // TODO: after going to another fragment change Distance in activity main fragment
+        Navigation.findNavController(
+            this@MainActivity,
+            R.id.fragmentContainerView
+        ).navigate(
+            R.id.action_cameraFragment2_to_blankFragment
+        )
+    }
+
 
 }
