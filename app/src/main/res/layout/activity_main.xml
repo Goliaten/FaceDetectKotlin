@@ -22,15 +22,6 @@
             android:layout_height="wrap_content"
             android:text="left eye" />
             -->
-        <TextView
-            android:id="@+id/TV_distance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="distance"
-            android:height="40dp"
-            android:textSize="30sp"
-            android:maxLines="1"
-            android:ellipsize="end"/>
 
 
         <androidx.fragment.app.FragmentContainerView
@@ -42,11 +33,6 @@
             app:navGraph="@navigation/nav_graph"
             tools:context=".MainActivity"
             />
-        <!--
-            android:name="com.example.facedetectkotlin.fragments.CameraFragment"
-            android:tag=""
-            app:navGraph="@navigation/nav_graph"/>-->
-        <!--TODO figure out how to get fragment to go into fragmentcontainerview by default-->
 
         <Button
             android:id="@+id/testButton2"

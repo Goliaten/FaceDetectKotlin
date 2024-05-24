@@ -29,7 +29,6 @@ class CameraFragment: Fragment(), FaceLandmarkerHelper.LandmarkerListener {
 
     private val fragmentCameraBinding
         get() = _fragmentCameraBinding!!
-    // TODO: solve this null exception https://stackoverflow.com/questions/70509248/how-to-solve-view-binding-null-pointer-exception-when-activity-restarts-and-frag
 
     private lateinit var faceLandmarkerHelper: FaceLandmarkerHelper
 
@@ -116,11 +115,9 @@ class CameraFragment: Fragment(), FaceLandmarkerHelper.LandmarkerListener {
     }
 
     override fun onError(error: String, errorCode: Int) {
-        TODO("Not yet implemented")
     }
 
     override fun onResults(resultBundle: FaceLandmarkerHelper.ResultBundle) {
-        TODO("Not yet implemented")
     }
     override fun onResume() {
         super.onResume()

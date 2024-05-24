@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -40,6 +41,11 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Booba", Toast.LENGTH_LONG).show();
     }
 
+    fun calibrateResults(view: View){
+        val multi = ResultHandler.calibrate(findViewById<Spinner>(R.id.cameraSpinner))
+        Toast.makeText(this, "Współczynni kamery zmieniony", Toast.LENGTH_SHORT).show()
+    }
+
     fun goToCamera(item: MenuItem) {
         Navigation.findNavController(
             this@MainActivity,
@@ -53,7 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         // TODO: This right now works only for going from camera fragment to blank fragment
         //       find a way to do this universally, or enjoy the pain of doing it for every fragment
-        // TODO: after going to another fragment change Distance in activity main fragment
         Navigation.findNavController(
             this@MainActivity,
             R.id.fragmentContainerView
