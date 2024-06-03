@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!--
-    TODO Make it so that app asks for permission. Right now if permission isnt granted app won't ask for it.-->
     <!-- Declare features -->
     <uses-feature android:name="android.hardware.camera" />
     <!-- Declare permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
     <application
+        android:name=".GlobalVars"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
