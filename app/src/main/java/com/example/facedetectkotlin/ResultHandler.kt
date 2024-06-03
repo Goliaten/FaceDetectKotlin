@@ -84,5 +84,10 @@ class ResultHandler(activityView: View, result: FaceLandmarkerHelper.ResultBundl
 
             return new_multi
         }
+
+        fun resetCalibration(){
+            GlobalVars.distanceMultiplier = GlobalVars.defaultMultiplier
+            GlobalVars.distance = GlobalVars.defaultDistance
+        }
     }
 }

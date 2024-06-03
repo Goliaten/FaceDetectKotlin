@@ -10,5 +10,7 @@ class GlobalVars: Application() {
         var spinnerDistanceItems = arrayOf("20", "30", "40", "50", "60", "70", "80")
         var cameraValuesRounding = 3.0
         lateinit var cameraResults: FaceLandmarkerHelper.ResultBundle
+        val defaultMultiplier = 0.65
+        val defaultDistance = 30
     }
 }

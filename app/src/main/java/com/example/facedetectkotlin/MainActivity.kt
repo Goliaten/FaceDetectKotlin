@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         ).navigate(
             R.id.action_blankFragment_to_cameraFragment2
         )
+        activityMainBinding.drawerLayout.closeDrawers()
     }
 
     fun goToSettings(item: MenuItem) {
@@ -65,6 +66,13 @@ class MainActivity : AppCompatActivity() {
         ).navigate(
             R.id.action_cameraFragment2_to_blankFragment
         )
+        activityMainBinding.drawerLayout.closeDrawers()
+    }
+
+    fun resetResultSettings(item: MenuItem) {
+        ResultHandler.resetCalibration()
+        Toast.makeText(this, "Współczynni kamery zresetowany", Toast.LENGTH_SHORT).show()
+        activityMainBinding.drawerLayout.closeDrawers()
     }
 
 
