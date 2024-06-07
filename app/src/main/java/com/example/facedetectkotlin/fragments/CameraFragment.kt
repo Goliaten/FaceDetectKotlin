@@ -136,10 +136,8 @@ class CameraFragment : Fragment(), FaceLandmarkerHelper.LandmarkerListener {
         savedInstanceState: Bundle?
     ): View {
 
-        Log.w("debug", "bazinga2")
         _fragmentCameraBinding =
             FragmentCameraBinding.inflate(inflater, container, false)
-        configureSpinner()
         return fragmentCameraBinding.root
     }
 
@@ -157,7 +155,6 @@ class CameraFragment : Fragment(), FaceLandmarkerHelper.LandmarkerListener {
             setUpCamera()
         }
 
-        Log.w("debug", "bazinga5")
         // Create the FaceLandmarkerHelper that will handle the inference
         backgroundExecutor.execute {
             faceLandmarkerHelper = FaceLandmarkerHelper(
@@ -248,15 +245,12 @@ class CameraFragment : Fragment(), FaceLandmarkerHelper.LandmarkerListener {
             fragmentCameraBinding.previewView.display.rotation
     }
 
-    // Update UI after face have been detected. Extracts original
-    // image height/width to scale and place the landmarks properly through
-    // OverlayView
     override fun onResults(
         resultBundle: FaceLandmarkerHelper.ResultBundle
     ) {
         activity?.runOnUiThread {
             if (_fragmentCameraBinding != null) {
-                var activity = fragmentCameraBinding.root.rootView
+                val activity = fragmentCameraBinding.root.rootView
 
                 ResultHandler(activity, resultBundle, camera!!)
 
@@ -265,38 +259,10 @@ class CameraFragment : Fragment(), FaceLandmarkerHelper.LandmarkerListener {
         }
     }
 
-    override fun onEmpty() {
-        //fragmentCameraBinding.overlay.clear()
-        activity?.runOnUiThread {/*
-            faceBlendshapesResultAdapter.updateResults(null)
-            faceBlendshapesResultAdapter.notifyDataSetChanged()*/
-        }
-    }
-
     override fun onError(error: String, errorCode: Int) {
         activity?.runOnUiThread {
-            Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()/*
-            faceBlendshapesResultAdapter.updateResults(null)
-            faceBlendshapesResultAdapter.notifyDataSetChanged()*/
-            /*
-                        if (errorCode == FaceLandmarkerHelper.GPU_ERROR) {
-                            fragmentCameraBinding.bottomSheetLayout.spinnerDelegate.setSelection(
-                                FaceLandmarkerHelper.DELEGATE_CPU, false
-                            )*/
+            Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
         }
-    }
-
-    fun configureSpinner(){
-        val adapter = this.context?.let {
-            ArrayAdapter(
-                it,
-                R.layout.spinner_item_right_aligned,
-                GlobalVars.spinnerDistanceItems.toList()
-            )
-        }
-        adapter!!.setDropDownViewResource(R.layout.spinner_item_right_aligned)
-
-        fragmentCameraBinding.cameraSpinner.adapter = adapter
     }
 }
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calibrateResults(view: View){
-        val multi = ResultHandler.calibrate(findViewById<Spinner>(R.id.cameraSpinner))
+        ResultHandler.calibrate( findViewById<EditText>(R.id.ET_distance).text.toString().toDouble() )
         Toast.makeText(this, "Współczynni kamery zmieniony", Toast.LENGTH_SHORT).show()
     }
 

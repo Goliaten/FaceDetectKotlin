@@ -5,12 +5,14 @@ import android.app.Application
 class GlobalVars: Application() {
 
     companion object{
+        // TODO: Zapisywanie konfiguracji i reset wszystkich ustawień na raz
         var distanceMultiplier = 0.65
-        var distance = 30
-        var spinnerDistanceItems = arrayOf("20", "30", "40", "50", "60", "70", "80")
+        var distance = 30.0
         var cameraValuesRounding = 3.0
         lateinit var cameraResults: FaceLandmarkerHelper.ResultBundle
-        val defaultMultiplier = 0.65
-        val defaultDistance = 30
+        // TODO: lista distansów i iloczynów, więcej algorytmów kamery
+        const val defaultMultiplier = 0.65
+        const val defaultDistance = 30.0
+        var cameraAlgorithmIndex = 0
     }
 }
