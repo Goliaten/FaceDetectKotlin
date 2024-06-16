@@ -5,6 +5,14 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/permissionsFragment">
 
+    <action
+        android:id="@+id/action_to_camera_fragment"
+        app:destination="@id/cameraFragment2"/>
+
+    <action
+        android:id="@+id/action_to_settings_fragment"
+        app:destination="@id/blankFragment"/>
+
     <fragment
         android:id="@+id/cameraFragment2"
         android:name="com.example.facedetectkotlin.fragments.CameraFragment"

@@ -34,13 +34,14 @@
             app:navGraph="@navigation/nav_graph"
             tools:context=".MainActivity"
             />
-
+        <!--
         <Button
             android:id="@+id/testButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Test button"
             android:onClick="buttonClick"/>
+        -->
 
     </LinearLayout>
 
